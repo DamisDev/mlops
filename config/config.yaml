@@ -1,0 +1,16 @@
+# Creo un file di configurazione base
+
+sagemaker:
+  region: eu-west-1
+  role: ${SAGEMAKER_ROLE_ARN}
+  instance_type: ml.m5.xlarge
+
+pipeline:
+  preprocessing:
+    input_path: s3://your-bucket/input
+    output_path: s3://your-bucket/preprocessed
+  training:
+    input_path: s3://your-bucket/preprocessed
+    output_path: s3://your-bucket/model
+  evaluation:
+    metrics_path: s3://your-bucket/metrics
